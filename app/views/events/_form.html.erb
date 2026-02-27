@@ -1,0 +1,54 @@
+<%= form_with(model: event) do |form| %>
+  <% if event.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+        <% event.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :sport_id, style: "display: block" %>
+    <%= form.number_field :sport_id %>
+  </div>
+
+  <div>
+    <%= form.label :date, style: "display: block" %>
+    <%= form.date_field :date %>
+  </div>
+
+  <div>
+    <%= form.label :lieu, style: "display: block" %>
+    <%= form.text_field :lieu, id: "monlieu1" %>
+  </div>
+<button id="loadmycity">chercher l'adresse</button>
+
+  <div>
+    <%= form.label :lat, style: "display: block" %>
+    <%= form.text_field :lat %>
+  </div>
+
+  <div>
+    <%= form.label :lon, style: "display: block" %>
+    <%= form.text_field :lon, id: "malongitude1" %>
+
+  </div>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name, id: "malatitude1" %>
+  </div>
+
+  <div>
+    <%= form.label :time, style: "display: block" %>
+    <%= form.time_field :time %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
